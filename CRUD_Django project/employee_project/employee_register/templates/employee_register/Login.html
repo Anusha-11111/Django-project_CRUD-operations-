@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Page</title>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: white;
+            }
+            button {
+                background-color: #4CAF50;
+                width: 25%;
+                padding: 15px;
+                color: black;
+                border: none;
+                float: center;
+                font-size: 15px;
+            }
+            label {
+                font-size: 20px;
+            }
+            form {
+                border: 3px solid #f1f1f1;
+            }
+            input[type=email], input[type=password] {
+                width: 50%;
+                font-size: 15px;
+                margin: 8px 0px;
+                padding: 12px 20px;
+                display: inline-block;
+                border: 2px solid rgb(208, 211, 208);
+                box-sizing: border-box;
+            }
+            button:hover {
+                opacity: 0.7;
+            }
+        </style>
+    </head>
+    <body>
+        <center><h1>Login Form</h1></center>
+        <form action="/login/" method="post">
+            {% csrf_token %}
+            {% load static %}
+            <center><div class="container">
+                <label for='email'><b>UserEmail :  </b></label>
+                <input type="email" placeholder="Enter email" name="email" float="right" required><br>  
+                <label for='password'><b>Password : </b></label>
+                <input type="password" placeholder="Enter Password" name="password" required><br>  
+                <button type="button" onclick="location.href='{% url 'employee_form' %}'"><b>login</b></button><br>     
+                Don't have an account <a href="/Signup/">Signup</a>
+            </div></center>
+        </form>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+    </body>
+</html>

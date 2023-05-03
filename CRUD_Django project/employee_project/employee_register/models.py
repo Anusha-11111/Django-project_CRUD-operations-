@@ -13,3 +13,10 @@ class Employee(models.Model):
     mobile = models.CharField(max_length=15)
     position = models.ForeignKey(Position,on_delete = models.CASCADE)
 
+class Signup(models.Model):
+    Fisrtname = models.CharField(max_length=100)
+    Lastname = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    password = models.CharField(max_length=50)
+
+
